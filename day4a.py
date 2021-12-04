@@ -12,7 +12,7 @@ def check_rows_sum(masks):
 def check_cols_sum(masks):
     width, height = masks.shape[1], masks.shape[2]
     vec = np.ones((masks.shape[2], 1))
-    arr = np.concatenate([mask.T for mask in masks])
+    arr = np.concatenate(masks, axis=1).T
     prod = arr @ vec
     return np.where(prod == width)[0] // width
 
